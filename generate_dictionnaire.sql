@@ -3,10 +3,24 @@
 -- DROP FUNCTION generate_dictionnaire(character varying, anyarray, character varying);
 
 CREATE OR REPLACE FUNCTION generate_dictionnaire(table_to_index character varying, listechamps anyarray, pk character varying)
-
-
-
   RETURNS character varying AS
+
+/******************************************************************************************
+
+D 	Description:
+	Fonction servant a générer les tables nécessaires a l'indexation fts et trigram
+	
+A	Arguments : 
+	table_to_index: nom de la tables a indexé
+	listechamps: liste du ou des champs  devant être indexé.
+	pk : le nom du champ pk de la tables (obligatoire)
+		
+S	Postconditions: les tables table_to_index_search_index et table_to_index_dict seront créées
+
+H  	Historique:
+
+    	Stéphane Cyr   Création 
+******************************************************************************************/
 $BODY$
 
 DECLARE
