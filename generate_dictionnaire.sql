@@ -13,8 +13,11 @@ D 	Description:
 A	Arguments : 
 	table_to_index: nom de la tables a indexé
 	listechamps: liste du ou des champs  devant être indexé.
-	pk : le nom du champ pk de la tables (obligatoire)
-		
+	pk : le nom du champ pk de la tables et son type (obligatoire)
+	
+U 	Utilisation :
+	SELECT generate_dictionnaire('t1', array[ 'c1','c2'], 'pk type');
+
 S	Postconditions: les tables table_to_index_search_index et table_to_index_dict seront créées
 
 H  	Historique:
@@ -115,8 +118,6 @@ END IF;
 	  USING gist
 	  (mot COLLATE pg_catalog."default" gist_trgm_ops)');
 
-	EXECUTE concat ('GRANT SELECT ON ',table_to_index,'_search_index  TO lecture_geo');
-	EXECUTE concat ('GRANT SELECT ON ',table_to_index,'_dict  TO lecture_geo');
 
    
 return 'ok';        
