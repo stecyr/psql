@@ -1,6 +1,4 @@
-﻿-- Function: mfa_search(text, integer)
 
--- DROP FUNCTION mfa_search(text, integer);
 
 CREATE OR REPLACE FUNCTION patate_search(IN in_phrase text, IN nombre integer)
   RETURNS TABLE(unique_id character varying, result text, ts text, ordre real) AS
@@ -57,5 +55,3 @@ $BODY$
   LANGUAGE plpgsql VOLATILE STRICT
   COST 100
   ROWS 1000;
-ALTER FUNCTION mfa_search(text, integer)
-  OWNER TO admgeo1;
